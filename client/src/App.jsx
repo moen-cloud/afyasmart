@@ -16,9 +16,14 @@ import TriagePage from './pages/TriagePage';
 import RecordsPage from './pages/RecordsPage';
 import ProfilePage from './pages/ProfilePage';
 
+// Doctor-Specific Pages
+import DoctorTriageReview from './pages/DoctorTriageReview';
+import PatientsPage from './pages/PatientsPage';
+
 // Role-Based Wrapper Components
 import RoleDashboard from './pages/RoleDashboard';
 import RoleAppointments from './pages/RoleAppointments';
+import RoleTriagePage from './pages/RoleTriagePage';
 
 function App() {
   const { user, initAuth, loading } = useAuthStore();
