@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { Heart, Home, Activity, Calendar, FileText, MessageCircle, User, LogOut, Menu, X } from 'lucide-react';
+import { Heart, Home, Activity, Calendar, FileText, MessageCircle, User, LogOut, Menu, X, Users } from 'lucide-react';
 import useAuthStore from '../store/authStore';
 import Button from '../components/Button';
 
@@ -10,7 +10,8 @@ const DashboardLayout = () => {
   const { user, logout } = useAuthStore();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navigation = [
+  // Different navigation for different roles
+  const patientNavigation = [
     { path: '/dashboard', label: 'Dashboard', icon: Home },
     { path: '/dashboard/triage', label: 'Health Check', icon: Activity },
     { path: '/dashboard/appointments', label: 'Appointments', icon: Calendar },
@@ -18,6 +19,18 @@ const DashboardLayout = () => {
     { path: '/dashboard/chat', label: 'Messages', icon: MessageCircle },
     { path: '/dashboard/profile', label: 'Profile', icon: User },
   ];
+
+  const doctorNavigation = [
+    { path: '/dashboard', label: 'Dashboard', icon: Home },
+    { path: '/dashboard/appointments', label: 'Appointments', icon: Calendar },
+    { path: '/dashboard/patients', label: 'Patients', icon: Users },
+    { path: '/dashboard/triage', label: 'Triage Review', icon: Activity },
+    { path: '/dashboard/records', label: 'Records', icon: FileText },
+    { path: '/dashboard/chat', label: 'Messages', icon: MessageCircle },
+    { path: '/dashboard/profile', label: 'Profile', icon: User },
+  ];
+
+  const navigation = user?.role === 'doctor' ? doctorNavigation : patientNavigation;
 
   const handleLogout = async () => {
     await logout();
@@ -35,7 +48,14 @@ const DashboardLayout = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate('/dashboard')}>
             <Heart className="w-8 h-8 text-blue-600" />
-            <span className="text-2xl font-bold text-gray-800">AfyaSmart</span>
+            <div>
+              <span className="text-2xl font-bold text-gray-800">AfyaSmart</span>
+              {user?.role === 'doctor' && (
+                <span className="ml-2 text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full font-semibold">
+                  DOCTOR
+                </span>
+              )}
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -59,7 +79,10 @@ const DashboardLayout = () => {
           <div className="flex items-center space-x-4">
             <div className="hidden md:flex items-center space-x-2 text-sm text-gray-600">
               <User className="w-4 h-4" />
-              <span>{user?.profile?.firstName}</span>
+              <span>
+                {user?.role === 'doctor' ? 'Dr. ' : ''}
+                {user?.profile?.firstName}
+              </span>
             </div>
             <Button variant="danger" size="sm" onClick={handleLogout} className="hidden md:flex items-center">
               <LogOut className="w-4 h-4 mr-2" />

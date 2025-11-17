@@ -10,11 +10,15 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardLayout from './pages/DashboardLayout';
-import Dashboard from './pages/Dashboard';
+
+// Shared Pages
 import TriagePage from './pages/TriagePage';
-import AppointmentsPage from './pages/AppointmentsPage';
 import RecordsPage from './pages/RecordsPage';
 import ProfilePage from './pages/ProfilePage';
+
+// Role-Based Wrapper Components
+import RoleDashboard from './pages/RoleDashboard';
+import RoleAppointments from './pages/RoleAppointments';
 
 function App() {
   const { user, initAuth, loading } = useAuthStore();
@@ -60,7 +64,7 @@ function App() {
         <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <LoginPage />} />
         <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <RegisterPage />} />
 
-        {/* Protected Routes */}
+        {/* Protected Routes - Role-Based Dashboard */}
         <Route
           path="/dashboard"
           element={
@@ -69,9 +73,9 @@ function App() {
             </ProtectedRoute>
           }
         >
-          <Route index element={<Dashboard />} />
+          <Route index element={<RoleDashboard />} />
           <Route path="triage" element={<TriagePage />} />
-          <Route path="appointments" element={<AppointmentsPage />} />
+          <Route path="appointments" element={<RoleAppointments />} />
           <Route path="records" element={<RecordsPage />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
