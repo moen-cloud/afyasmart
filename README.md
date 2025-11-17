@@ -1,6 +1,5 @@
 # AfyaSmart - E-Clinic & Triage Platform
 
-![AfyaSmart Logo](https://via.placeholder.com/150x150.png?text=AfyaSmart)
 
 AfyaSmart is a comprehensive MERN stack healthcare platform that provides symptom-based triage assessments, appointment booking, medical records management, and real-time doctor-patient communication. This project aligns with **UN SDG 3: Good Health and Well-Being**.
 
@@ -18,12 +17,6 @@ AfyaSmart is a comprehensive MERN stack healthcare platform that provides sympto
 -  **Medical Records** - Add prescriptions, diagnoses, and lab results
 -  **Triage Review** - Review and provide feedback on patient assessments
 -  **Profile Management** - Manage professional credentials and availability
-
-### For Admins
--  **Dashboard Analytics** - View platform statistics and metrics
--  **User Management** - Manage patients and doctors
--  **Doctor Verification** - Verify and approve doctor accounts
--  **System Management** - Monitor and maintain platform health
 
 ##  Technology Stack
 
@@ -162,9 +155,8 @@ npm run dev
 
 #### 5. Access the Application
 
-- **Frontend:** http://localhost:5173
-- **Backend API:** http://localhost:5000/api
-- **API Health Check:** http://localhost:5000/health
+- **Frontend:** https://afyasmart-frontend.onrender.com
+- **Backend API:** https://afyasmart-backend.onrender.com
 
 ##  API Documentation
 
@@ -285,13 +277,6 @@ We welcome contributions! Please follow these steps:
 - Update documentation as needed
 - Ensure all tests pass before submitting PR
 
-##  License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Team
-
-- **Your Name** - Full Stack Developer - [GitHub](https://github.com/yourusername)
 
 ##  Acknowledgments
 
@@ -299,18 +284,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Icons by [Lucide](https://lucide.dev/)
 - UI inspiration from modern healthcare platforms
 
-##  Contact
-
-For questions or support, please contact:
-- Email: support@afyasmart.com
-- Website: https://afyasmart.com
-- GitHub Issues: https://github.com/yourusername/afyasmart/issues
-
-##  Known Issues
-
-- Real-time chat UI needs completion
-- Email notifications not yet implemented
-- Video consultation feature pending
 
 ##  Roadmap
 
@@ -323,12 +296,7 @@ For questions or support, please contact:
 - [ ] Advanced analytics dashboard
 - [ ] AI-powered symptom checker improvements
 
-##  Project Status
-
-**Current Version:** 1.0.0  
-**Status:** Active Development  
-**Last Updated:** December 2024
 
 ---
 
-Made with  for better healthcare accessibility
+Made with  for educational purposes.
